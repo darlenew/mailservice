@@ -47,7 +47,9 @@ Edit the settings.cfg file and supply your API keys in the appropriate sections
 ###running
 
 Run the Flask server:
-    $ ./mailservice.py
+```
+$ ./mailservice.py
+```
 
 By default, the server is now running at http://127.0.0.1:5000
 
