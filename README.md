@@ -5,7 +5,7 @@ An HTTP service that accepts POST requests containing JSON data representing a s
 
 ### setup
 
-1. Install the requests module
+Install the requests module
 
 ```
 # Download the module
@@ -20,7 +20,7 @@ $ cd kennethreitz-requests-7022830/
 $ python setup.py install
 ```
 
-2. Install Flask
+Install Flask
 
 ```
 # Download the module
@@ -34,7 +34,7 @@ $ cd Flask-0.10.1
 $ python setup.py install
 ```
 
-3. Configuration file
+Configuration file
 
 ```
 # Copy the sample-settings.cfg to settings.cfg
@@ -72,7 +72,7 @@ mail service, resulting in a text-only message.
 
 ###testing
 
-1. Discover and run the unit tests.
+Discover and run the unit tests.
 
     $ python -m unittest discover -v -p '*.py'
 
@@ -91,15 +91,15 @@ actual service.  These need to be set in your environent variables:
 
 ###adding new email service
 
-1. Create a new Python module for your email service.  It is
+Create a new Python module for your email service.  It is
 anticipated that the new module will have an all-lowercase name.
 
-2. In the new module, create a subclass of EmailSystem for your new
+In the new module, create a subclass of EmailSystem for your new
 email service.  The subclass is expected to match the module name, but
 start with a capital letter.  Implement the send_message() method as
 appropriate for the new service.
 
-3. Create a section in the settings.cfg configuration file for the new
+Create a section in the settings.cfg configuration file for the new
 email service.  The name of the section must exactly match the name of
 the corresponding subclass.
 
