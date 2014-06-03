@@ -21,6 +21,8 @@ if not os.path.exists(CONFIG_FILE):
 if not app.debug:
     import logging
     from logging.handlers import RotatingFileHandler
+    if not os.path.exists("logs"):
+        os.makedirs("logs")
     file_handler = RotatingFileHandler('logs/mailservice.log', 'a', 1 * 1024 * 1024 * 10, 30)
     file_handler.setFormatter(logging.Formatter('%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'))
     app.logger.setLevel(logging.DEBUG)
