@@ -1,16 +1,16 @@
 mailservice
 ===========
 
-An HTTP service that accepts POST requests containing JSON data representing a single email message.  The email message is delivered, text-only, via one of the configured transactional email services.  If the message is not successfully sent, it is retried with another transactional email service.
+An HTTP email sending service that allows you to configure multiple transactional email services to use, in case one of them goes down.  This service accepts POST requests containing JSON data representing a single email message.  The email message is delivered, text-only, via one of the configured transactional email services.  If the message is not successfully sent, it is retried with another configured transactional email service.
 
-### setup
+setup
+=====
 
 Install the requests module
 
 ```
 # Download the module
-$ cd Flask-0.10.1
-$ python setup.py install
+$ curl -OL https://github.com/kennethreitz/requests/tarball/master
 
 # Extract the contents of the tarball
 $ tar xvf master
@@ -34,17 +34,18 @@ $ cd Flask-0.10.1
 $ python setup.py install
 ```
 
-Configuration file
+Configure
 
 ```
 # Copy the sample-settings.cfg to settings.cfg
 $ cp sample-settings.cfg settings.cfg
 ```
 
-Edit the settings.cfg file and supply your API keys in the appropriate sections
+Edit the settings.cfg file.  Supply your API keys and sandbox URL in the appropriate sections.
 
 
-###running
+running
+=======
 
 Run the Flask server:
 ```
@@ -72,7 +73,8 @@ tags in the body section, but the HTML will be stripped off by the
 mail service, resulting in a text-only message.
 
 
-###testing
+testing
+=======
 
 Discover and run the unit tests.
 
@@ -91,7 +93,8 @@ actual service.  These need to be set in your environent variables:
     $ export TESTMAILSERVICE_FROM_NAME=<your name>
 
 
-###adding new email service
+how to add a new email service
+==============================
 
 Create a new Python module for your email service.  It is
 anticipated that the new module will have an all-lowercase name.
